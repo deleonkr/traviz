@@ -1,3 +1,5 @@
+# This Python script is to combine speed table with distance table and calculate timecost for each sensor pair along the route.
+
 import math
 import geopy.distance
 import numpy as np
