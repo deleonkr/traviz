@@ -27,7 +27,6 @@
 		font-weight: 300;
 		font-family: 'Lato', Arial, sans-serif;
 		line-height: 60px;
-        z-index: 999;
 }
 
 .gn-menu-main {
@@ -76,13 +75,10 @@
 }
 
 .gn-menu-main > li:last-child {
-        padding-left: 20px;
-        border-right: none;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 400;
-    }
+		float: right;
+		border-right: none;
+		border-left: 1px solid #c6d0da;
+}
 
 .gn-menu-main > li > a {
 		padding: 0 30px;
@@ -284,23 +280,23 @@ input.gn-search:focus {
 
 .gn-icon-menu::before {
 		margin-left: -15px;
-		vertical-align: -5px;
+		vertical-align: -2px;
 		width: 30px;
 		height: 3px;
 		background: #5f6f81;
-		box-shadow: 0 3px white, 0 -8px #5f6f81, 0 -9px white, 0 -16px #5f6f81;
+		box-shadow: 0 3px white, 0 -6px #5f6f81, 0 -9px white, 0 -12px #5f6f81;
 		content: '';
 }
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
 		background: white;
-		box-shadow: 0 3px #5f6f81, 0 -8px white, 0 -9px #5f6f81, 0 -16px white;
+		box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px white;
 }
 
 .gn-icon-menu.gn-selected::before {
 		background: #5993cd;
-		box-shadow: 0 3px white, 0 -8px #5993cd, 0 -9px white, 0 -16px #5993cd;
+		box-shadow: 0 3px white, 0 -6px #5993cd, 0 -9px white, 0 -12px #5993cd;
 }
 
 /* styles for opening menu */
