@@ -1,3 +1,5 @@
+# This Python script is to calculate average timecost between sensor pairs along the route group by weekdate and hour.
+
 fiName = "I10_2016_hourly_east"
 fh = open(fiName+".csv")
 isHead = True
