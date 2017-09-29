@@ -231,6 +231,10 @@ footer {
     align-items: center;
 }
     
+#headlines h1 {
+	font-size: 2.8em;
+}
+    
  main {
     width: 90%;
 }
