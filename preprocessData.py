@@ -1,3 +1,5 @@
+# This is used to divide our initial dataset by freeway direction, and change the datetime format.
+
 import time
 fh = open("I10_2016.csv")
 fo_sensor = open("I10_2016_sensor_locationMap.csv","w")
