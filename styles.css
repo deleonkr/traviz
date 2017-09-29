@@ -1,0 +1,254 @@
+/* styles.css 
+   Project: Traviz - JOUR-590 Journalism Reengineered
+   Author: Stefani Urmas
+   Date: 09/28/2017
+*/
+
+@font-face {
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+  }
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    font-weight: 300;
+}
+
+header {
+    position: relative;
+	overflow: hidden;
+    color: #fff;
+	font-family: 'Lato', Arial, sans-serif;
+    background-color: #001E3C;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+#mobile-nav {
+    display: none;
+}
+
+#logo {
+    float: left;
+    height: 60px;
+    width: 30%;
+    margin: 0;
+    padding: 0px 0px 2px 3%;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #FFD800;
+}
+
+#desktop-nav {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 55%;
+    height: 60px;
+    box-sizing: border-box;
+} 
+
+#desktop-nav ul {
+    float: right;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#desktop-nav li {
+    list-style: none;
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-left: 40px;
+    box-sizing: border-box;
+} 
+
+#social {
+    float: left;
+    width: 15%;
+    height: 60px; 
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#headerimage {
+    position: relative;
+	padding: 0;
+    margin: 0;
+	background: rgba(0,0,0,0.05);
+    clear: both;
+    width: 100%;
+    height: 350px;
+    background-image: url(../img/traffic-01.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#headlines {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background-color: rgba(0,30,50,0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#headlines h1 {
+	font-size: 3.2em;
+	line-height: 1em;
+	margin: 0;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
+#headlines span {
+	display: block;
+	font-size: 55%;
+	color: rgba(255,255,255,0.6);
+	padding: 0 0 0.6em 0.1em;
+}
+
+main {
+    position: relative;
+    top: -50px;
+    background-color: white;
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, .4);
+    box-sizing: border-box;
+}
+
+main h1, section h1 {
+    font-weight: 300;
+    margin: 0px;
+}
+
+section {
+    position: relative;
+    background-color: #001E3C;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#dataviz-container {
+    background-color: white;
+    width: 70%;
+    height: auto;
+    margin: 25px 15%;
+    padding: 30px;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, .4);
+    box-sizing: border-box;
+}
+
+#dataviz {
+    width: 100%;
+    height: 500px;
+    background-color: #f8f8f8;
+    margin-top: 10px;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #001E3C;
+}
+
+
+/*****************/
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 768px) {
+  
+#mobile-nav {
+    display: block;
+    float: left;
+    height: 60px;
+    width: 15%;
+    margin: 0;
+    padding: 0;
+    background-color: #001E3C;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 1.6em;
+}
+
+#desktop-nav {
+    display: none;
+} 
+    
+#logo {
+    float: left;
+    width: 70%;
+    padding: 0px 0px 2px 0px;
+    align-items: center;
+}
+    
+#headlines h1 {
+	font-size: 2.8em;
+}
+    
+ main {
+    width: 90%;
+}
+
+header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+}
+    
+#dataviz-container {
+    width: 90%;
+    margin: 25px auto;
+}
+
+}
