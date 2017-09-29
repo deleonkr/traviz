@@ -197,6 +197,8 @@ footer {
     background-color: #001E3C;
 }
 
+
+/*****************/
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 768px) {
@@ -208,7 +210,14 @@ footer {
     width: 15%;
     margin: 0;
     padding: 0;
-    background-color: #062844;
+    background-color: #001E3C;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 1.6em;
 }
 
 #desktop-nav {
@@ -231,6 +240,11 @@ header {
     left: 0px;
     top: 0px;
     z-index: 999;
+}
+    
+#dataviz-container {
+    width: 90%;
+    margin: 25px auto;
 }
 
 }
