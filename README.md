@@ -3,9 +3,10 @@ journalism + engineering traffic project
 
 
 ## Description for timecost csv file:
-## eg. Timecost_calender_with_route_I10_2016_hourly_east-759163-to-763453.csv
 
-### header
+eg. Timecost_calender_with_route_I10_2016_hourly_east-759163-to-763453.csv
+
+* header
 - weekdate
 0 -> monday
 1 -> tuesday
