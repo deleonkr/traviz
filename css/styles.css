@@ -1,0 +1,207 @@
+/* styles.css 
+   Project: Traviz - JOUR-590 Journalism Reengineered
+   Author: Stefani Urmas
+   Date: 09/28/2017
+*/
+
+@font-face {
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #34495e;
+  }
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    font-weight: 300;
+}
+
+header, .codrops-top {
+	color: #fff;
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+#logo {
+    float: left; 
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-left: 80px;
+    width: 300px;
+    height: auto;
+}
+
+#desktop-menu li {
+    float: left;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0px 20px
+}
+
+#headerimage {
+	padding: 0;
+    margin: 0;
+	background: rgba(0,0,0,0.05);
+    clear: both;
+    width: 100%;
+    height: 350px;
+    background-image: url(../img/traffic-01.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#headlines {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    text-align: center;
+    background-color: rgba(0,30,50,0.8);
+    height: 290px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#headlines h1 {
+	font-size: 3.2em;
+	line-height: 1.3;
+	margin: 0;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+}
+
+#headlines span {
+	display: block;
+	font-size: 55%;
+	color: rgba(255,255,255,0.6);;
+	padding: 0 0 0.6em 0.1em;
+}
+
+main {
+    position: relative;
+    top: -50px;
+    background-color: white;
+    width: 70%;
+    margin: auto;
+    padding: 4%;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, .4);
+}
+
+main h1 {
+    font-weight: 300;
+    margin: 0px;
+}
+
+/* To Navigation Style */
+.codrops-top {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.6);
+	text-transform: uppercase;
+	width: 100%;
+	font-size: 0.69em;
+	line-height: 2.2;
+}
+
+.codrops-top a {
+	text-decoration: none;
+	padding: 0 1em;
+	letter-spacing: 0.1em;
+	color: #888;
+	display: inline-block;
+}
+
+.codrops-top a:hover {
+	background: rgba(255,255,255,0.95);
+	color: #333;
+}
+
+.codrops-top span.right {
+	float: right;
+}
+
+.codrops-top span.right a {
+	float: left;
+	display: block;
+}
+
+.codrops-icon:before {
+	font-family: 'codropsicons';
+	margin: 0 4px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+	content: "\e001";
+}
+
+.codrops-icon-prev:before {
+	content: "\e004";
+}
+
+/* Demo Buttons Style */
+.codrops-demos {
+	padding-top: 1em;
+	font-size: 0.9em;
+}
+
+.codrops-demos a {
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	margin: 0.5em;
+	padding: 0.7em 1.1em;
+	border: 3px solid #b1aea6;
+	color: #b1aea6;
+	font-weight: 700;
+}
+
+.codrops-demos a:hover,
+.codrops-demos a.current-demo,
+.codrops-demos a.current-demo:hover {
+	border-color: #89867e;
+	color: #89867e;
+}
+
+@media screen and (max-width: 1025px) {
+	.container > header {
+		margin: 0 auto;
+		padding: 120px 50px;
+		font-size: 70%;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 740px) {
+
+	.codrops-icon span {
+		display: none;
+	}
+
+}
+
+
+
+
+
+
+
