@@ -186,8 +186,8 @@ section {
 
 #dataviz {
     width: 100%;
-    height: 500px;
-    background-color: #f8f8f8;
+    height: auto;
+    background-color: white;
     margin-top: 10px;
 }
 
