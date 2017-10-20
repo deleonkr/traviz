@@ -231,6 +231,7 @@ break {
 }
 
 #form-button {
+    float: left;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -240,11 +241,33 @@ break {
     letter-spacing: 2.5px;
     height: 36px;
     width: 15%;
-    border: 1px solid #11508E;
+    border: 0px solid #11508E;
     border-radius: 3px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
     box-sizing: border-box;
     font-size: 0.7em;
+    margin-left: 28px;
+    text-transform: uppercase;
+}
+
+.table-button {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    color: white;
+    letter-spacing: 2.5px;
+    height: 36px;
+    width: 160px;
+    border: 0px solid #11508E;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    font-size: 0.7em;
+    margin-left: 28px;
+    text-transform: uppercase;
 }
 
 main {
@@ -280,6 +303,12 @@ section {
     padding: 30px;
     box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, .4);
     box-sizing: border-box;
+}
+
+#map {
+    width: 100%;
+    height: 220px;
+    margin: 10px;
 }
 
 #dataviz {
@@ -324,12 +353,105 @@ section {
     margin-right: 4%;
 }
 
+#table-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#table {
+    position: relative;
+    background-color: antiquewhite;
+    width: 100%;
+    border: 2px solid white;
+}
+
+#table {
+    position: relative;
+    background-color: antiquewhite;
+    width: 100%;
+    font-size: 0.6em;
+    border: 2px solid white;
+}
+
+.thead {
+    position: relative;
+    background-color: #333;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    border: 2px solid white;
+}
+
+.tbody {
+    position: relative;
+    background-color: #dddddd;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.td {
+    height: 30px;
+    border: 2px solid white;
+}
+
+.td:first-child {
+    background-color: #333;
+    color: white;
+    border: 2px solid white;
+}
+
+.color-red {
+    color: red;
+    background-color: black;
+}
+
 footer {
     width: 100%;
     height: 100px;
     background-color: #001E3C;
 }
 
+/* TABLE STYLES */
+
+#chart {
+    font-size: 9pt;
+    font-family: 'Lato', sans-serif;
+    fill: #FFFFFF;
+}
+
+rect.bordered {
+    stroke: white;
+    stroke-width: 2px;   
+}
+
+text.mono {
+    font-size: 9pt;
+    font-family: 'Lato', sans-serif;
+    fill: #000;
+}
+
+text.axis-workweek {
+    fill: #000;
+}
+
+text.axis-worktime {
+    fill: #000;
+}
+
+text.timecost {
+    padding: 10px;
+}
+
+.dayLabel {
+    width: 41px;
+    height: 41px;
+    background-color: aqua;
+}
+
+
+
+/* END OF TABLE STYLES */
 
 /*****************/
 /* MEDIA QUERIES */

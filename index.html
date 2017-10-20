@@ -11,12 +11,13 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
       	<link href="css/jqueryui.css" rel="stylesheet" type="text/css">
-        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        
 		<link rel="stylesheet" type="text/css" href="css/component.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700" rel="stylesheet">
 		<script src="js/modernizr.custom.js"></script>
         <script src="https://use.fontawesome.com/721ef12779.js"></script>
-    
+        <script src="js/d3/d3.v3.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
   
 <body>
@@ -45,16 +46,249 @@
             </div>
         </div>
     </div>
-        
+       
+    <!--
     <main>
         <h1>Outsmart Your Travels in Los Angeles</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </main>
+    -->
         
     <section>
         
         <div id="dataviz-container">
+            
             <h1>Santa Monica &ndash; Downtown L.A.</h1>
+            
+            <div id="dataviz">
+                
+                <!-- GOOGLE MAP -->
+                
+                <div id="map"></div>
+                <script>
+                function initMap() {
+                // Styles a map in night mode.
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          center: {lat: 34.021188, lng: -118.497738},
+                          zoom: 25,
+                          zoomControl: false,
+                          scaleControl: false,
+                          disableDefaultUI: true,
+                          gestureHandling: 'greedy',
+                          styles: [
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#e9e9e9"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 29
+                            },
+                            {
+                                "weight": 0.2
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 18
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#dedede"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": 36
+                            },
+                            {
+                                "color": "#333333"
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            },
+                            {
+                                "lightness": 19
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 17
+                            },
+                            {
+                                "weight": 1.2
+                            }
+                        ]
+                    }
+                ]
+                });
+
+                  var kmlLayer = new google.maps.KmlLayer({
+                    url: 'http://stefaniurmas.com/visualizations/interstate-10-east.kmz',
+                    suppressInfoWindows: true,
+                    map: map
+                  });
+
+                  kmlLayer.addListener('click', function(kmlEvent) {
+                    var text = kmlEvent.featureData.description;
+                    showInContentWindow(text);
+                  });
+
+                  function showInContentWindow(text) {
+                    var sidediv = document.getElementById('content-window');
+                    sidediv.innerHTML = text;
+                  }
+               }
+                </script>
+                
+                
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3i_3c290fUN8S3hav7uxPqXZi8pbrhH4&callback=initMap"
+                        async defer></script>
+            
+                <h3>Travel time, minutes (time of the day / weekday)</h3>
+                
+                <div id="chart"></div>
+                    <div id="dataset-picker">
+                </div>
+                
+            </div>
+        </div>
+        
+        <div id="dataviz-container">
+            
+            <h3>Travel time, minutes (time of the day / weekday)</h3>
+            <p>Santa Monica &mdash; Downtown L.A.</p>
+            
             <div id="dataviz">
                 <div id="combo">
                     <div id="traveltimes">
@@ -68,17 +302,8 @@
                         <img src="img/speed-santamonica-downtown.svg">
                     </div>
                 </div>
-                <h3>Speed (distance, miles)</h3>
-                <p>Santa Monica &mdash; Downtown L.A.</p>
-                <img id="timetable" src="img/speed-curve.svg">
-                <h3>Travel time, minutes (time of the day / weekday)</h3>
-                <iframe frameborder="0" src="calendarView.html" width="1400" height="500"></iframe>
-                <h3>Travel average speed, minutes (time of the day / weekday)</h3>
-                <iframe frameborder="0" src="avg.speed.calendarView.html" width="1400" height="500"></iframe>
-<!--                 <p>Santa Monica &mdash; Downtown L.A.</p>
-                <img id="timetable" src="img/timetable-santamonica-downtown.svg">
-
- -->            </div>
+            
+            </div>
         </div>
         
         
@@ -95,17 +320,14 @@
             <h1>Speeds on the Interstate 10 West to East</h1>
             <div id="dataviz">
                 
-                <div class='tableauPlaceholder' id='viz1506901729260' style='position: relative'><noscript><a href='#'><img alt='max min speed for esch sensor ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W5&#47;W5CSYCWCH&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='2' /> <param name='path' value='shared&#47;W5CSYCWCH' /> 
-                <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W5&#47;W5CSYCWCH&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>
-
+                <div class='tableauPlaceholder' id='viz1508134645992' style='position: relative'>
+                    <noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Trafic_LA&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='2' /> <param name='site_root' value='' /><param name='name' value='Tableau_Trafic_LA&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Trafic_LA&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object>
+                </div>
+                
                 <script type='text/javascript'>
-                var divElement = document.getElementById('viz1506901729260');
-                var vizElement = divElement.getElementsByTagName('object')[0];
-                vizElement.style.width='850px';vizElement.style.height='720px';
-                var scriptElement = document.createElement('script');  
-                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    var divElement = document.getElementById('viz1508134645992');
+                    var vizElement = divElement.getElementsByTagName('object')[0];                   vizElement.style.width='800px';vizElement.style.height='860px';
+                    var scriptElement = document.createElement('script');                   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';             vizElement.parentNode.insertBefore(scriptElement, vizElement);
                 </script>
             
             </div>
