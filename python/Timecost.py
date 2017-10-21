@@ -5,23 +5,30 @@ import geopy.distance
 import numpy as np
 
 
-fname_data="I10_2016_hourly_east-759163-to-763453"
+fname_data="I10_2016_minute_west-769097-to-759178"
 fname_sensorList = "Sensor_list_of_"+fname_data+".csv"
-fname_speed_calender = "new_Speed_calender_with_route_"+fname_data+".csv"
+fname_speed_calender = "Speed_calender_with_route_"+fname_data+".csv"
 
 fh_sensorList = open(fname_sensorList)
 fh_speed_calender = open(fname_speed_calender)
 fh_sensorLocation = open("I10_2016_sensor_locationMap.csv")
+fh_sensorDistance = open("benchmark_distances.csv")
 
 sensorList=fh_sensorList.read().strip().split(",")
+print(sensorList)
 speed_table = []
-
+i = 0;
 ishead=True
 for line in fh_speed_calender:
     if ishead==True:
         ishead=False
+        i = i + 1;
     else:
-        speed_table.append(map(lambda x:float(x),line.strip().split(",")[2:]))
+        try:
+            i = i + 1;
+            speed_table.append(list(map(lambda x:float(x),line.strip().split(",")[3:])))
+        except ValueError:
+            print("error on line ",i)
 
 speed_matrix = np.matrix(speed_table)
 
@@ -34,21 +41,31 @@ for line in fh_sensorLocation:
         sensor,lat,lon = line.strip().split(",")
         sensorLocationMap[sensor]=(float(lat),float(lon))
 
-
 def geoDistance(sensor1, sensor2):
     lat1, lon1 = sensorLocationMap[sensor1]
     lat2, lon2 = sensorLocationMap[sensor2]
     distance = geopy.distance.vincenty((lat1, lon1), (lat2, lon2)).miles  # math.sqrt(((float(lat1)-float(lat2))**2 + (float(lon1)-float(lon2))**2))
     return distance
 
-print sensorLocationMap
 disList=[]
+sensorPair=[]
 for sensorID in range(len(sensorList)-1):
-    disList.append(geoDistance(sensorList[sensorID],sensorList[sensorID+1]))
-print disList
+    sensorPair.append((sensorList[sensorID],sensorList[sensorID+1]))
 
-dist_matrix = np.ones((7*24,1)) * np.matrix(disList)
+ishd = True
+for fLine in fh_sensorDistance:
+    if ishd == True:
+        ishd = False
+    else:
+        sensor1,sensor2,netDist = fLine.strip().split(",")
+        for pair in sensorPair:
+            if (sensor1 == pair[0]) and (sensor2 == pair[1]):
+                newNetworkDist = float(netDist) * (1/1609.344)
+                disList.append(newNetworkDist)
+
+print(speed_matrix.shape)
+dist_matrix = np.ones((7*24*6,1)) * np.matrix(disList)
+print(dist_matrix.shape)
 timecost_matrix=3600*dist_matrix / speed_matrix
-print timecost_matrix
 
 np.savetxt("Timecost_calender_with_route_"+fname_data+".csv", timecost_matrix, delimiter=",")
