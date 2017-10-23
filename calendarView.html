@@ -76,8 +76,8 @@
           };
         },
         function(error, data) {
-          var datamin = d3.min(data, function (d) { return d.value; })
-          var datamax = d3.max(data, function (d) { return d.value; })
+          var datamin = d3.min(data, function (d) { return d.value; });
+          var datamax = d3.max(data, function (d) { return d.value; });
           var colorScale = d3.scale.quantile()
               .domain([datamin,datamax])//d3.max(data, function (d) { return d.value; })
               .range(colors);
