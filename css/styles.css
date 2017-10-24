@@ -428,11 +428,13 @@ rect.bordered {
 text.mono {
     font-size: 9pt;
     font-family: 'Lato', sans-serif;
-    fill: #000;
+    fill: #ffffff;
+    stroke: white;
+    stroke-width: 0px;
 }
 
 text.axis-workweek {
-    fill: #000;
+    fill: #ffffff;
 }
 
 text.axis-worktime {
@@ -444,14 +446,20 @@ text.timecost {
 }
 
 .dayLabel {
-    width: 41px;
-    height: 41px;
-    background-color: aqua;
+    width: 40px;
+    height: 40px;
+    stroke: white;
+    stroke-width: 2px;
 }
 
+.timeLabel {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+    stroke-width: 2px;
+}
 
-
-/* END OF TABLE STYLES */
+/* END OF TABbuLE STYLES */
 
 /*****************/
 /* MEDIA QUERIES */
