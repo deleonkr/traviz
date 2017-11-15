@@ -5,17 +5,17 @@ import geopy.distance
 import numpy as np
 
 
-fname_data="I10_2016_minute_west-769097-to-759178"
+fname_data="SR101_2016_minute_west-764853-to-760013"
 fname_sensorList = "Sensor_list_of_"+fname_data+".csv"
 fname_speed_calender = "Speed_calender_with_route_"+fname_data+".csv"
 
 fh_sensorList = open(fname_sensorList)
 fh_speed_calender = open(fname_speed_calender)
-fh_sensorLocation = open("I10_2016_sensor_locationMap.csv")
+fh_sensorLocation = open("SR101_2016_sensor_locationMap.csv")
 fh_sensorDistance = open("benchmark_distances.csv")
 
 sensorList=fh_sensorList.read().strip().split(",")
-print(sensorList)
+print(sensorList, len(sensorList))
 speed_table = []
 i = 0;
 ishead=True
@@ -53,6 +53,7 @@ for sensorID in range(len(sensorList)-1):
     sensorPair.append((sensorList[sensorID],sensorList[sensorID+1]))
 
 ishd = True
+dist = dict()
 for fLine in fh_sensorDistance:
     if ishd == True:
         ishd = False
@@ -61,8 +62,15 @@ for fLine in fh_sensorDistance:
         for pair in sensorPair:
             if (sensor1 == pair[0]) and (sensor2 == pair[1]):
                 newNetworkDist = float(netDist) * (1/1609.344)
-                disList.append(newNetworkDist)
+                dist[pair[0], pair[1]] = newNetworkDist
 
+for pair in sensorPair:
+    if pair not in dist:
+        dist[pair] = geoDistance(*pair)
+
+    disList.append(dist[pair])
+
+print(disList, len(disList))
 print(speed_matrix.shape)
 dist_matrix = np.ones((7*24*6,1)) * np.matrix(disList)
 print(dist_matrix.shape)

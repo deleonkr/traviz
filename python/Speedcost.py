@@ -1,6 +1,6 @@
 # This Python script is to calculate average speed between sensor pairs along the route group by weekdate and hour.
-
-fiName = "I10_2016_minute_west"
+import sys
+fiName = sys.argv[1] #"I5_2016_minute_west"
 fh = open(fiName+".csv")
 isHead = True
 head =None
